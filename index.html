@@ -1,33 +1,43 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Nithil E</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithil | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b280a383d4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <main>
+        <section id="hero">
+            <div class="hero-header">
+                <h1>Nithil</h1>
+                <nav class="nav">
+                    <div class="nav-links">
+                        <a href="#" class="nav-link"><i class="fa-solid fa-briefcase"></i> Work</a>
+                        <a href="#" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+                        <a href="#" class="nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+                        <a href="#" class="nav-link"><i class="fa-solid fa-address-book"></i> Contact</a>
+                    </div>
+                </nav>
+            </div>
+            <p>Software Engineer & Designer</p>
+        </section>
+    </main>
+    <div id="overlay"></div>
 
-		<!-- Header -->
-			<header id="header">
-				<h1>Under Maintenance</h1>
-				<p></p>
-			</header>
-
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="https://www.instagram.com/nithil_e/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="https://github.com/nithelan" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="mailto:nithilanelan@outlook.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; All rights reserved.</li><li></li>
-				</ul>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+    <script src="assets/js/main.js"></script>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+        </defs>
+    </svg>
+</body>
 </html>
