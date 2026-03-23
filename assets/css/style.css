@@ -165,17 +165,6 @@ p {
   width: 100%;
 }
 
-#title-sep {
-  margin-top: -1vh;
-  margin-bottom: 0.8vh;
-  border: 1px groove #c8e0ff;
-  opacity: 0.6;
-  width: 94%;
-  box-shadow: 0 0 26px 2px white, /* horizontal-offset vertical-offset blur-radius spread-radius color */
-  0 0 20px 4px rgba(3, 75, 115, 1),
-  0 0 22px 4px rgba(3, 75, 115, 1);
-}
-
 .hero-header {
   display: flex;
   align-items: center;
