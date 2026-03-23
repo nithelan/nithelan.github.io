@@ -246,10 +246,11 @@ p {
 }
 
 /* Optional: Add a subtle glow effect on hover for the entire bar */
-.glass-nav:hover {
+.nav:hover {
   background: rgba(10, 30, 50, 0.45);
   border-top-color: rgba(100, 180, 230, 0.4);
   border-bottom-color: rgba(100, 180, 230, 0.4);
+}
 
 main::before {
   content: '';
