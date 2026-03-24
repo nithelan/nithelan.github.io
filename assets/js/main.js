@@ -47,4 +47,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    //Text scrambling animation
+    const target = document.querySelector(".typing-text");
+    const finalValue = target.dataset.value;
+
+    // Modern hacking charset: Letters, Numbers, and Tech Symbols
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+<>?/[]{}";
+
+    let iteration = 0;
+    let interval = null;
+
+    // Clear any existing interval
+    clearInterval(interval);
+
+    interval = setInterval(() => {
+        target.innerText = finalValue
+            .split("")
+            .map((letter, index) => {
+                // If the iteration has passed this letter's index, lock it in
+                if (index < iteration) {
+                    return finalValue[index];
+                }
+
+                // Otherwise, return a random "glitch" character
+                return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join("");
+
+        if (iteration >= finalValue.length) {
+            clearInterval(interval);
+            // Optional: Add a 'finished' class to trigger a final CSS glow
+            target.classList.add("locked");
+        }
+
+        // Adjusting this controls the "solve" speed
+        // Higher = faster reveal | Lower = more flickering
+        iteration += 1 / 4;
+    }, 40);
 });

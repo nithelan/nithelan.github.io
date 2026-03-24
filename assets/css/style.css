@@ -8,6 +8,10 @@
   --color5: 2, 59, 99;      /* #023B63 */
   --color-interactive: 2, 59, 99;
   --circle-size: 160%;
+  --glow-primary: #034b73;  /* Matches your 45% gradient stop */
+  --glow-secondary: #023b63; /* Matches your 30% gradient stop */
+  --text-main: #e0f2ff;     /* A very soft, icy blue instead of pure white */
+  --caret-color: rgba(224, 242, 255, 0.6);
   --blending: hard-light;
 }
 
@@ -201,23 +205,53 @@ section {
   font-size: clamp(3rem, 10vw, 6rem);
   color: #e8f0ff;
   margin-bottom: 1rem;
-
-  border-right: 4px solid #64b4e6;
   white-space: nowrap;
   overflow: hidden;
-  width: 0;
-
-  /* FASTER: Reduced from 3.5s to 2s for more "snap" */
-  /* SMOOTHER: Added a slight ease-in-out instead of just steps */
-  animation:
-          typing 2s steps(20, end) forwards,
-          blink 0.75s step-end infinite;
+  width: 100%;
+  max-width: max-content;
+  position: relative;
+  display: inline-block;
+  padding: 10px 40px;
+  text-shadow:
+          0 0 12px var(--glow-primary),
+          0 0 25px rgba(3, 75, 115, 0.4),
+          0 0 40px rgba(2, 59, 99, 0.2);
+  -webkit-mask-image: radial-gradient(
+          ellipse at center,
+          rgba(0,0,0,1) 40%,
+          rgba(0,0,0,0) 95%
+  );
+  mask-image: radial-gradient(
+          ellipse at center,
+          rgba(0,0,0,1) 40%,
+          rgba(0,0,0,0) 95%
+  );
+  transition: all 0.8s ease-in-out;
+}
+.typing-text::after {
+  content: '';
+  position: absolute;
+  right: 5px;
+  top: 20%;
+  height: 60%;
+  border-right: 0.5vw solid var(--caret-color);
+  box-shadow: 0 0 15px var(--glow-primary);
+  animation: blink 1.2s step-end infinite;
 }
 
-@keyframes typing {
-  from { width: 0; }
-  /* FIXED: Stops exactly at the end of the text */
-  to { width: 100%; max-width: max-content; }
+.typing-text.locked {
+  color: #ffffff;
+  text-shadow:
+          0 0 10px #ffffff,
+          0 0 20px var(--glow-primary),
+          0 0 40px var(--glow-secondary),
+          0 0 80px rgba(3, 75, 115, 0.3);
+  transform: scale(1.01);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 .subtitle {
@@ -306,6 +340,7 @@ section {
 h1 {
   font-family: "bulgatti", serif;
   font-size: 3rem;
+  font-weight: bolder;
   color: #e8f0ff;
   transition: opacity 0.3s ease;
 }
@@ -349,7 +384,7 @@ h1 {
   flex-grow: 1;
   width: 100%;
   text-align: center;
-  margin-top: 0vh;
+  margin-top: 0;
 }
 
 .error-illustration {
